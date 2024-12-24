@@ -51,7 +51,7 @@ function Dashboard() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post(backendUrl + "/api/trans/post-trans", FormData);
+            const { data } = await axios.post(backendUrl + "/api/trans/post-trans/", FormData);
     
             if (data.message) {
                 toast.success(data.message, {
