@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://student-budget-tracker.onrender.com", "http://localhost:5173"];
 
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.urlencoded({ extended: false }));
