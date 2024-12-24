@@ -20,4 +20,8 @@ app.use("/api/trans", transRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 
+app.get("/", (req, res) => {
+  res.send("api is working");
+});
+
 app.listen(process.env.PORT, () => console.log("server is running"));
