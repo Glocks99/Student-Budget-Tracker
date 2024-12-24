@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-const allowedOrigins = ['https://student-budget-tracker-asrnovqi5-james-projects-c571ef3f.vercel.app'];
+const allowedOrigins = ["https://student-budget-tracker.vercel.app"];
 
 app.use(cors({ origin: allowedOrigins, credentials: true, methods: "GET, POST, PUT, DELETE" }));
 app.use(express.urlencoded({ extended: false }));
