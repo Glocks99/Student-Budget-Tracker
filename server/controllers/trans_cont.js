@@ -2,10 +2,12 @@ const transModel = require("../models/trans_model")
 
 
 const getTrans = async(req,res) => {
+    const {id} = req.params
     try {
         await transModel.find({})
         .then(data => {
-            res.json(data)
+            const filteredData = data.filter(item => item.user_id === id)
+            res.json(filteredData)
         })
     } catch (err) {
         console.log(err.message)
