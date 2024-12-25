@@ -10,9 +10,13 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-const allowedOrigins = ["*"];
+const allowedOrigins = ["https://student-budget-tracker.vercel.app","https://student-budget-tracker.onrender.com"];
 
-app.use(cors({ origin: allowedOrigins, credentials: true, methods: "GET, POST, PUT, DELETE" }));
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET, POST, PUT, DELETE"] 
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
