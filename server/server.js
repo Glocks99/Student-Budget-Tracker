@@ -10,12 +10,21 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-const allowedOrigins = ["https://student-budget-tracker.vercel.app","https://student-budget-tracker.onrender.com"];
-
+const allowedOrigins = [
+  "https://student-budget-tracker.vercel.app",
+  "https://student-budget-tracker.onrender.com",
+  "http://localhost:5173", // For local development
+];
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-  methods: ["GET, POST, PUT, DELETE"] 
+  methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
