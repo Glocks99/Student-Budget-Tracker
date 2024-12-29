@@ -219,7 +219,7 @@ const sendResetOtp = async(req,res) => {
 
         user.resetOtp = otp;
 
-        user.resetOtpExpireAt = Date.now() + 15 * 60 * 1000
+        user.resetOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000
 
         await user.save()
 
