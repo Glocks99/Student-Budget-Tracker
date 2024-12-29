@@ -167,7 +167,7 @@ const verifyEmail = async(req,res) => {
         const user = await userModel.findById(userId)
 
         if(!user){
-            return res.json({success: falsem, message: "user not found !"})
+            return res.json({success: false, message: "user not found !"})
         }
 
         if(user.verifyOtp === "" || user.verifyOtp != otp){
